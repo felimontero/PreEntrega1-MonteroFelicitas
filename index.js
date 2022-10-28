@@ -45,27 +45,7 @@ while (seguirViendo === true) {
     alert(`El total de tu estadia es ${totalEstadia}`)
 
 
-    // //let diasTotales = 0
-    // //let dia = true
-    // let sumaTotal
-    // let dias = parseInt (prompt ('Ingresa la cantidad de dias: 1.Tres dias- 2.Siete dias - 3.Diez dias -4."Salir"'))
-    // while (dias != 4) {
-    // if (dias == 1) {
-    // diasTotales = 3
-    // } else if (dias == 2) {
-    // diasTotales = 7
-    // } else if (dias == 3) {
-    // diasTotales = 10
-    // }
-    // dias = parseInt (prompt ('Ingresa la cantidad de dias: 1.Tres dias- 2.Siete dias - 3.Diez dias'))
-    // }
-    // sumaTotal = parseInt (prompt ('¿Deseas añadir mas dias a tu estadia? 1.Si 2.No'))
-    // if (sumaTotal === 1) {
-    // dias = parseInt (prompt ('Ingresa la cantidad de dias: 1.Tres dias- 2.Siete dias - 3.Diez dias'))
-    // } else {
-    // dia = false
-    // }
-    // alert (`El total de dias de tu estadia es ${diasTotales}`)
+
 
 
 
