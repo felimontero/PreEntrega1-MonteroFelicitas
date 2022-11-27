@@ -1,99 +1,229 @@
 
-function presentacionUsuario(x) {
-    alert(`Bienvenido ${x} a la pagina oficial de las Cabañas Jardin Serrano`)
-    return alert
-}
 
-let usuario = prompt('Ingresa tu nombre')
-presentacionUsuario(usuario)
+// function presentacionUsuario(x) {
+//     alert(`Bienvenido ${x} a la pagina oficial de las Cabañas Jardin Serrano`)
+//     return alert
+// }
+
+// let usuario = prompt('Ingresa tu nombre')
+// presentacionUsuario(usuario)
 
 
-let cabañaElegida = parseInt(prompt('Escoge la cabaña que quieras reservar: 1.Los Ceibos - 2.El Rosedal - 3.Las Lavandas - 4. Las violetas - 5.Los jazmines'))
+// let cabañaElegida = parseInt(prompt('Escoge la cabaña que quieras reservar: 1.Los Ceibos - 2.El Rosedal - 3.Las Lavandas - 4. Las violetas - 5.Los jazmines'))
 
-let totalEstadia = 0
-let seguirViendo = true
-let decision
+// let totalEstadia = 0
+// let seguirViendo = true
+// let decision
 
 //array
-const cabañasDisponibles = []
 
 class Cabaña {
-    constructor(nombre, precio) {
+    constructor(id, nombre, precio, imagen, descripcion) {
+        this.id = id;
         this.nombre = nombre;
         this.precio = precio;
+        this.imagen = imagen;
+        this.descripcion = descripcion;
     }
 }
 
-const Ceibos = new Cabaña(1, 12500)
-cabañasDisponibles.push(Ceibos)
-const Rosedal = new Cabaña(2, 6900)
-cabañasDisponibles.push(Rosedal)
-const Lavandas = new Cabaña(3, 9000)
-cabañasDisponibles.push(Lavandas)
-const violetas = new Cabaña(4, 8500)
-cabañasDisponibles.push(violetas)
-const jazmines = new Cabaña(5, 5990)
-cabañasDisponibles.push(jazmines)
+
+const cabañasDisponibles = []
+
+let cabaña1 = new Cabaña(1, "Los Ceibos", 12500, "./images/ceibos.jpg", "Hasta ocho personas");
+cabañasDisponibles.push(cabaña1)
+let cabaña2 = new Cabaña(2, "El Rosedal", 6900, "./images/rosedal.jpg", "Hasta tres personas");
+cabañasDisponibles.push(cabaña2)
+let cabaña3 = new Cabaña(3, "Las Lavandas", 9000, "./images/lavandas.jpg", "Hasta cinco personas");
+cabañasDisponibles.push(cabaña3)
+let cabaña4 = new Cabaña(4, "Las Violetas", 8500, "./images/violetas.jpg", "Hasta cuatro personas");
+cabañasDisponibles.push(cabaña4)
+let cabaña5 = new Cabaña(5, "Los Jazmines", 4990, "./images/jazmines.jpg", "Hasta tres personas");
+cabañasDisponibles.push(cabaña5)
+let cabaña6 = new Cabaña(5, "Las Fresias", 8500, "./images/fresias.jpg", "Hasta cuatro personas");
+cabañasDisponibles.push(cabaña6)
+let cabaña7 = new Cabaña(5, "Las Margaritas", 2590, "./images/margaritas.jpg", "Hasta dos personas");
+cabañasDisponibles.push(cabaña7)
+let cabaña8 = new Cabaña(5, "Las Camelias", 7950, "./images/camelias.jpg", "Hasta cuatro personas");
+cabañasDisponibles.push(cabaña8)
+let cabaña9 = new Cabaña(5, "Las Azaleas", 3990, "./images/azaleas.jpg", "Hasta tres personas");
+cabañasDisponibles.push(cabaña9)
+let cabaña10 = new Cabaña(5, "Siempre Verde", 11500, "./images/siempreVerde.jpg", "Hasta seis personas");
+cabañasDisponibles.push(cabaña10)
+
+const contenedorCabañas = document.getElementById('contenedorCabañas');
+
+cabañasDisponibles.forEach((cabañas) => {
+    const divProductos = document.getElementById('divProductos')
+    divProductos.className = 'tarjetasCabañas'
+    divProductos.innerHTML += `
+    <div class= "datosTarjetas">
+    <div class="card-body">
+    <img src="${cabañas.imagen}" class= "imagenesCabañas">
+                <p class="card-title">${cabañas.nombre}</p>
+                <p class="card-text-precio">${cabañas.precio}</p>
+                <p class= "card-text-descripcion">${cabañas.descripcion}</p>
+                <button id="boton${cabañas.id}" class= "boton">Escoger cabaña</button>
+            </div>
+        </div>
+        `
+
+    const boton = document.getElementById(`boton${cabañas.id}`);
+    boton.addEventListener('click', () => {
+        agregarAlCarrito(cabañas.id);
+    });
+})
 
 
-while (seguirViendo === true) {
+const carrito = JSON.parse(localStorage.getItem('carrito')) || []
+const contenedorCarrito = document.getElementById('contenedorCarrito')
+const contador = document.getElementById('contador')
 
-    const cabañaCliente = cabañasDisponibles.find(cabaña => cabaña.nombre === cabañaElegida)
-    if (cabañaCliente) {
-        totalEstadia = totalEstadia + cabañaCliente.precio
+
+const contadorCarrito = () => {
+    contador.style.display = 'block'
+    contador.innerText = carrito.length
+}
+
+const agregarAlCarrito = (id) => {
+    const cabañas = cabañasDisponibles.find((cabañas) => cabañas.id === id)
+    const CabañaSeleccionada = carrito.find((cabañas) => cabañas.id === id)
+    if (CabañaSeleccionada) {
+        CabañaSeleccionada.precio++
     } else {
-        cabañaElegida = parseInt(prompt('Escoge una cabaña disponible: 1.Los Ceibos - 2.El Rosedal - 3.Las Lavandas - 4. Las violetas - 5.Los jazmines'))
-        continue
+        carrito.push(cabañas)
     }
-    console.log(cabañaCliente)
-
-
-    
-    // if (cabañaElegida === 1) {
-    //     totalEstadia = totalEstadia + Ceibos.precio
-    // } else if (cabañaElegida === 2) {
-    //     totalEstadia = totalEstadia + Rosedal.precio
-    // } else if (cabañaElegida === 3) {
-    //     totalEstadia = totalEstadia + Lavandas.precio
-    // } else if (cabañaElegida === 4) {
-    //     totalEstadia = totalEstadia + violetas.precio
-    // } else if (cabañaElegida === 5) {
-    //     totalEstadia = totalEstadia + jazmines.precio
-    // } else {
-    //     cabaña = parseInt(prompt('Escoge una cabaña disponible: 1.Los Ceibos - 2.El Rosedal - 3.Las Lavandas - 4. Las violetas - 5.Los jazmines'))
-    //     continue
-    // }
-
-
-    decision = parseInt(prompt('Quieres seguir comprando? 1.Si - 2.No'))
-    if (decision === 1) {
-        cabañaElegida = parseInt(
-            prompt(
-                'Escoge una cabaña disponible: 1.Los Ceibos - 2.El Rosedal - 3.Las Lavandas - 4. Las violetas - 5.Los jazmines'
-            )
-        )
-    } else {
-        seguirViendo = false
-    }
-}
-alert(`El total de tu estadia es ${totalEstadia}`)
-
-
-
-function diasEstadia(dias) {
-
-    if (dias === 1) {
-        alert(`Tu estadia en la cabaña durara tres dias`)
-    } else if (dias === 2) {
-        alert(`Tu estadia en la cabaña durara siete dias`)
-    } else if (dias === 3) {
-        alert(`Tu estadia en la cabaña durara diez dias`)
-    }
-    return alert
+    updateCarrito();
+    contadorCarrito();
 }
 
-let dias = parseInt(prompt('Ingresa la cantidad de dias: 1.Tres dias- 2.Siete dias - 3.Diez dias'))
+function updateCarrito() {
+    let update = ''
+    carrito.forEach((cabañas) => {
+        update += `
+        <div class="contenidoDelCarrito">
+        <h3 class="itemCarritoTitulo"> ${cabañas.nombre} </h3>
+        <p class="itemCarrito">$${cabañas.precio}</p>
+        <button onClick = "borrarDelCarrito(${cabañas.id})" class="boton">Eliminar</button>
+        </div>`
+    })
 
-diasEstadia(dias)
+    contenedorCarrito.innerHTML = update
+    calcularTotalEstadia();
+}
 
+
+const borrarDelCarrito = (id) => {
+    const cabañas = carrito.find((cabañas) => cabañas.id === id)
+    carrito.splice(carrito.indexOf(cabañas), 1)
+    updateCarrito();
+    contadorCarrito();
+}
+
+const vaciarCarrito = document.getElementById('vaciarCarrito')
+vaciarCarrito.addEventListener('click', () => {
+    carrito.splice(0, carrito.length)
+    updateCarrito();
+    contadorCarrito();
+})
+
+const totalEstadia = document.getElementById('totalEstadia')
+const finalizar = document.getElementById('finalizarCompra')
+
+const calcularTotalEstadia = () => {
+    let total = 0
+    carrito.forEach((cabañas) => {
+        total += cabañas.id + cabañas.precio
+    })
+    totalEstadia.innerHTML = total;
+
+    if (total !== 0) {
+        finalizar.addEventListener('click', calcularTotalEstadia)
+    }
+    console.log(calcularTotalEstadia)
+}
+
+//agregar carrito a storage
+localStorage.setItem('carrito', JSON.stringify(carrito))
+
+
+
+// botonesAgregar.forEach(boton => {
+//     boton.onclick = () => {
+//         const CabañaSeleccionada = cabañasDisponibles.find(prod => prod.id === parseInt(boton.id))
+
+//         const cabañaCarrito = { ...CabañaSeleccionada, cantidad: 1 }
+
+//         const indexCarrito = carrito.findIndex(prod => prod.id === cabañaCarrito.id)
+//         if (indexCarrito === -1) {
+//             carrito.push(cabañaCarrito)
+//         } else {
+//             carrito(indexCarrito).cantidad++
+//         }
+
+//         //agregar carrito a storage
+//         localStorage.setItem('carrito', JSON.stringify(carrito))
+//     }
+// })
+
+// //finalizar compra
+// const botonFinalizar = document.querySelector('#finalizar')
+// botonFinalizar.onclick = () => {
+//     const valores = carrito.map(prod => prod.precio * prod.cantidad)
+//     let totalEstadia = 0
+//     valores.forEach(valor => {
+//         totalEstadia += valor
+//     })
+// }
+
+// botonAgregar.onclick = () => {
+//     const indexCaba = selectCaba.selectedIndex
+//     const CabañaSeleccionada = cabañasDisponibles[indexCaba]
+//     carrito.push(CabañaSeleccionada)
+//     console.log(carrito)
+// }
+
+
+// while (seguirViendo === true) {
+
+//     const cabañaCliente = cabañasDisponibles.find(cabaña => cabaña.nombre === cabañaElegida)
+//     if (cabañaCliente) {
+//         totalEstadia = totalEstadia + cabañaCliente.precio
+//     } else {
+//         cabañaElegida = parseInt(prompt('Escoge una cabaña disponible: 1.Los Ceibos - 2.El Rosedal - 3.Las Lavandas - 4. Las violetas - 5.Los jazmines'))
+//         continue
+//     }
+//     console.log(cabañaCliente)
+
+
+//     decision = parseInt(prompt('Quieres seguir comprando? 1.Si - 2.No'))
+//     if (decision === 1) {
+//         cabañaElegida = parseInt(
+//             prompt(
+//                 'Escoge una cabaña disponible: 1.Los Ceibos - 2.El Rosedal - 3.Las Lavandas - 4. Las violetas - 5.Los jazmines'
+//             )
+//         )
+//     } else {
+//         seguirViendo = false
+//     }
+// }
+// alert(`El total de tu estadia es ${totalEstadia}`)
+
+
+
+// function diasEstadia(dias) {
+
+//     if (dias === 1) {
+//         alert(`Tu estadia en la cabaña durara tres dias`)
+//     } else if (dias === 2) {
+//         alert(`Tu estadia en la cabaña durara siete dias`)
+//     } else if (dias === 3) {
+//         alert(`Tu estadia en la cabaña durara diez dias`)
+//     }
+//     return alert
+// }
+
+// let dias = parseInt(prompt('Ingresa la cantidad de dias: 1.Tres dias- 2.Siete dias - 3.Diez dias'))
+
+// diasEstadia(dias)
 
