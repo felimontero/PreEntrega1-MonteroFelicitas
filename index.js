@@ -130,6 +130,7 @@ const calcularTotalEstadia = () => {
 //agregar carrito a storage
 localStorage.setItem('carrito', JSON.stringify(carrito))
 
+//bienvenida al usuario
 
 const nombre = document.getElementById("inputNombre")
 const apellido = document.getElementById("inputApellido")
