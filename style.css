@@ -100,7 +100,7 @@ footer {
     display: flex;
     flex-direction: row;
     display: grid;
-    grid-template-columns: 2fr 2fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
     border: 2px black;
     background-color: white;
     align-items: center;

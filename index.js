@@ -36,26 +36,27 @@ cabañasDisponibles.push(cabaña10)
 const contenedorCabañas = document.getElementById('contenedorCabañas');
 
 cabañasDisponibles.forEach((cabañas) => {
-    const divProductos = document.getElementById('divProductos')
-    divProductos.className = 'tarjetasCabañas'
-    divProductos.innerHTML += `
+    const divProductos = document.createElement("div");
+    divProductos.className = "tarjetasCabañas";
+    divProductos.innerHTML = `
     <div class= "datosTarjetas">
     <div class="card-body">
-    <img src="${cabañas.imagen}" class= "imagenesCabañas">
+    <img src="${cabañas.imagen}" class= "imagenesCabañas"/>
                 <p class="card-title">${cabañas.nombre}</p>
                 <p class="card-text-precio">${cabañas.precio}</p>
                 <p class= "card-text-descripcion">${cabañas.descripcion}</p>
-                <button type="Button" id="boton ${cabañas.id}" class= "boton">Escoger cabaña</button>
+                <button type="Button" id="boton-${cabañas.id}" class= "boton">Escoger cabaña</button>
             </div>
         </div>
         `
-    contenedorCabañas.append(divProductos);
+    contenedorCabañas.appendChild(divProductos);
 
-    const boton = document.getElementById(`boton ${cabañas.id}`);
-    boton.addEventListener('click', () => {
+    const boton = document.getElementById(`boton-${cabañas.id}`);
+    boton.addEventListener("click", () => {
         agregarAlCarrito(cabañas.id);
+        console.log(cabañas.id);
     });
-})
+});
 
 
 const carrito = JSON.parse(localStorage.getItem('carrito')) || []
@@ -150,84 +151,3 @@ botonCliente.onclick = () => {
     bienvenido.append(saludo)
     
 }
-
-
-// botonesAgregar.forEach(boton => {
-//     boton.onclick = () => {
-//         const CabañaSeleccionada = cabañasDisponibles.find(prod => prod.id === parseInt(boton.id))
-
-//         const cabañaCarrito = { ...CabañaSeleccionada, cantidad: 1 }
-
-//         const indexCarrito = carrito.findIndex(prod => prod.id === cabañaCarrito.id)
-//         if (indexCarrito === -1) {
-//             carrito.push(cabañaCarrito)
-//         } else {
-//             carrito(indexCarrito).cantidad++
-//         }
-
-//         //agregar carrito a storage
-//         localStorage.setItem('carrito', JSON.stringify(carrito))
-//     }
-// })
-
-// //finalizar compra
-// const botonFinalizar = document.querySelector('#finalizar')
-// botonFinalizar.onclick = () => {
-//     const valores = carrito.map(prod => prod.precio * prod.cantidad)
-//     let totalEstadia = 0
-//     valores.forEach(valor => {
-//         totalEstadia += valor
-//     })
-// }
-
-// botonAgregar.onclick = () => {
-//     const indexCaba = selectCaba.selectedIndex
-//     const CabañaSeleccionada = cabañasDisponibles[indexCaba]
-//     carrito.push(CabañaSeleccionada)
-//     console.log(carrito)
-// }
-
-
-// while (seguirViendo === true) {
-
-//     const cabañaCliente = cabañasDisponibles.find(cabaña => cabaña.nombre === cabañaElegida)
-//     if (cabañaCliente) {
-//         totalEstadia = totalEstadia + cabañaCliente.precio
-//     } else {
-//         cabañaElegida = parseInt(prompt('Escoge una cabaña disponible: 1.Los Ceibos - 2.El Rosedal - 3.Las Lavandas - 4. Las violetas - 5.Los jazmines'))
-//         continue
-//     }
-//     console.log(cabañaCliente)
-
-
-//     decision = parseInt(prompt('Quieres seguir comprando? 1.Si - 2.No'))
-//     if (decision === 1) {
-//         cabañaElegida = parseInt(
-//             prompt(
-//                 'Escoge una cabaña disponible: 1.Los Ceibos - 2.El Rosedal - 3.Las Lavandas - 4. Las violetas - 5.Los jazmines'
-//             )
-//         )
-//     } else {
-//         seguirViendo = false
-//     }
-// }
-// alert(`El total de tu estadia es ${totalEstadia}`)
-
-
-
-// function diasEstadia(dias) {
-
-//     if (dias === 1) {
-//         alert(`Tu estadia en la cabaña durara tres dias`)
-//     } else if (dias === 2) {
-//         alert(`Tu estadia en la cabaña durara siete dias`)
-//     } else if (dias === 3) {
-//         alert(`Tu estadia en la cabaña durara diez dias`)
-//     }
-//     return alert
-// }
-
-// let dias = parseInt(prompt('Ingresa la cantidad de dias: 1.Tres dias- 2.Siete dias - 3.Diez dias'))
-
-// diasEstadia(dias)
-
