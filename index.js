@@ -22,15 +22,15 @@ let cabaña4 = new Cabaña(4, "Las Violetas", 8500, "./images/violetas.jpg", "Ha
 cabañasDisponibles.push(cabaña4)
 let cabaña5 = new Cabaña(5, "Los Jazmines", 4990, "./images/jazmines.jpg", "Hasta tres personas");
 cabañasDisponibles.push(cabaña5)
-let cabaña6 = new Cabaña(5, "Las Fresias", 8500, "./images/fresias.jpg", "Hasta cuatro personas");
+let cabaña6 = new Cabaña(6, "Las Fresias", 8500, "./images/fresias.jpg", "Hasta cuatro personas");
 cabañasDisponibles.push(cabaña6)
-let cabaña7 = new Cabaña(5, "Las Margaritas", 2590, "./images/margaritas.jpg", "Hasta dos personas");
+let cabaña7 = new Cabaña(7, "Las Margaritas", 2590, "./images/margaritas.jpg", "Hasta dos personas");
 cabañasDisponibles.push(cabaña7)
-let cabaña8 = new Cabaña(5, "Las Camelias", 7950, "./images/camelias.jpg", "Hasta cuatro personas");
+let cabaña8 = new Cabaña(8, "Las Camelias", 7950, "./images/camelias.jpg", "Hasta cuatro personas");
 cabañasDisponibles.push(cabaña8)
-let cabaña9 = new Cabaña(5, "Las Azaleas", 3990, "./images/azaleas.jpg", "Hasta tres personas");
+let cabaña9 = new Cabaña(9, "Las Azaleas", 3990, "./images/azaleas.jpg", "Hasta tres personas");
 cabañasDisponibles.push(cabaña9)
-let cabaña10 = new Cabaña(5, "Siempre Verde", 11500, "./images/siempreVerde.jpg", "Hasta seis personas");
+let cabaña10 = new Cabaña(10, "Siempre Verde", 11500, "./images/siempreVerde.jpg", "Hasta seis personas");
 cabañasDisponibles.push(cabaña10)
 
 const contenedorCabañas = document.getElementById('contenedorCabañas');
@@ -150,8 +150,6 @@ botonCliente.onclick = () => {
     bienvenido.append(saludo)
     
 }
-
-
 
 
 // botonesAgregar.forEach(boton => {
