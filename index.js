@@ -1,22 +1,4 @@
 
-
-// function presentacionUsuario(x) {
-//     alert(`Bienvenido ${x} a la pagina oficial de las Cabañas Jardin Serrano`)
-//     return alert
-// }
-
-// let usuario = prompt('Ingresa tu nombre')
-// presentacionUsuario(usuario)
-
-
-// let cabañaElegida = parseInt(prompt('Escoge la cabaña que quieras reservar: 1.Los Ceibos - 2.El Rosedal - 3.Las Lavandas - 4. Las violetas - 5.Los jazmines'))
-
-// let totalEstadia = 0
-// let seguirViendo = true
-// let decision
-
-//array
-
 class Cabaña {
     constructor(id, nombre, precio, imagen, descripcion) {
         this.id = id;
@@ -63,12 +45,13 @@ cabañasDisponibles.forEach((cabañas) => {
                 <p class="card-title">${cabañas.nombre}</p>
                 <p class="card-text-precio">${cabañas.precio}</p>
                 <p class= "card-text-descripcion">${cabañas.descripcion}</p>
-                <button id="boton${cabañas.id}" class= "boton">Escoger cabaña</button>
+                <button type="Button" id="boton ${cabañas.id}" class= "boton">Escoger cabaña</button>
             </div>
         </div>
         `
+    contenedorCabañas.append(divProductos);
 
-    const boton = document.getElementById(`boton${cabañas.id}`);
+    const boton = document.getElementById(`boton ${cabañas.id}`);
     boton.addEventListener('click', () => {
         agregarAlCarrito(cabañas.id);
     });
@@ -145,6 +128,29 @@ const calcularTotalEstadia = () => {
 
 //agregar carrito a storage
 localStorage.setItem('carrito', JSON.stringify(carrito))
+
+
+const nombre = document.getElementById("inputNombre")
+const apellido = document.getElementById("inputApellido")
+const loguin = document.getElementById("loguin")
+const bienvenido = document.getElementById("bienvenido")
+
+
+
+const botonCliente = document.getElementById("boton")
+botonCliente.onclick = () => {
+    const datos =  {
+        nombre: nombre.value,
+        apellido: apellido.value
+    }
+    localStorage.setItem("datos", JSON.stringify(datos))
+    loguin.remove()
+    const saludo = document.createElement ("h2")
+    saludo.innerText = `Bienvenido ${datos.nombre} ${datos.apellido}`
+    bienvenido.append(saludo)
+    
+}
+
 
 
 
