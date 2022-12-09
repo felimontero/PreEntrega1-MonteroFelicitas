@@ -94,7 +94,7 @@ footer {
     align-items: center;
 }
 
-.tarjetasCabañas {
+.tarjetasCabaña {
     margin-top: 10px;
     text-align: center;
     display: flex;
@@ -172,6 +172,27 @@ footer {
     width: 100%;
 }
 
+.contenidoDelCarrito {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 20px;
+    width: 100%;
+}
+
+.itemCarritoTitulo {
+    width: 200px;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.itemCarrito {
+    margin-left: 80px;
+    width: 200px;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
 .footer-carrito {
     background-color: cadetblue;
     color: white;
@@ -182,6 +203,7 @@ footer {
     border: none;
     width: 100%;
 }
+
 
 .boton {
     background-color: cadetblue;

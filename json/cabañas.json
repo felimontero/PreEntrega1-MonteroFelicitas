@@ -1,0 +1,76 @@
+[
+
+{
+    "id":1,
+    "nombre": "Los Ceibos",
+    "precio": 12500,
+    "imagen": "./images/ceibos.jpg",
+    "descripcion": "Hasta ocho personas"
+},
+
+{
+    "id":2,
+    "nombre": "El Rosedal",
+    "precio": 6900,
+    "imagen": "./images/rosedal.jpg",
+    "descripcion": "Hasta tres personas"
+},
+{
+    "id":3,
+    "nombre": "Las Lavandas",
+    "precio": 9000,
+    "imagen": "./images/lavandas.jpg",
+    "descripcion": "Hasta cinco personas"
+},
+{
+    "id":4,
+    "nombre": "Las Violetas",
+    "precio": 8500,
+    "imagen": "./images/violetas.jpg",
+    "descripcion": "Hasta cuatro personas"
+},
+{
+    "id":5,
+    "nombre": "Los Jazmines",
+    "precio": 4990,
+    "imagen": "./images/jazmines.jpg",
+    "descripcion": "Hasta tres personas"
+},
+{
+    "id":6,
+    "nombre": "Las Fresias",
+    "precio": 8500,
+    "imagen": "./images/fresias.jpg",
+    "descripcion": "Hasta cuatro personas"
+},
+{
+    "id":7,
+    "nombre": "Las Margaritas",
+    "precio": 2590,
+    "imagen": "./images/margaritas.jpg",
+    "descripcion": "Hasta dos personas"
+},
+{
+    "id":8,
+    "nombre": "Las Camelias",
+    "precio": 7590,
+    "imagen": "./images/camelias.jpg",
+    "descripcion": "Hasta cuatro personas"
+},
+{
+    "id":9,
+    "nombre": "Las Azaleas",
+    "precio": 3990,
+    "imagen": "./images/azaleas.jpg",
+    "descripcion": "Hasta tres personas"
+},
+{
+    "id":10,
+    "nombre": "Siempre Verde",
+    "precio": 11500,
+    "imagen": "./images/siempreVerde.jpg",
+    "descripcion": "Hasta seis personas"
+}
+
+
+]
