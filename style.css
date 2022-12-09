@@ -135,13 +135,13 @@ footer {
     font-size: 12px;
     padding: 2px;
     top: 37px;
-    left: 190px;
+    right: 5px;
     display: none;
     position: absolute;
     width: 20px;
     text-align: center;
-    align-items: center;
 }
+
 
 .carrito-compras {
     width: 70%;
@@ -202,6 +202,26 @@ footer {
     padding: 15px;
     border: none;
     width: 100%;
+}
+
+.icono-carrito {
+    scroll-behavior: auto;
+}
+
+.navbar {
+    background-color: white;
+    height: 100px;
+    margin-top: 0;
+}
+
+.navbar .nav-item img {
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
+
+.navbar .nav-item img:hover {
+    width: 55px;
 }
 
 

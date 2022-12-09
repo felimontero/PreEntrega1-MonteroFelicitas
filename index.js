@@ -177,7 +177,7 @@ const calcularTotalEstadia = () => {
         swal.fire({
             title: `El total de tu estadia es ${total}`,
             text: 'Gracias por elegirnos! Los esperamos.',
-            background: 'lightgray'
+            background: 'cadetblue'
         })
     }
 }
